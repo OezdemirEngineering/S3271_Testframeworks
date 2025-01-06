@@ -11,5 +11,5 @@ public class Circle(double radius) : IGeometry
 {
     public double Radius => radius;
     public double GetLength()
-        => 2 * Math.PI * radius;
+        => 2 * radius;
 }

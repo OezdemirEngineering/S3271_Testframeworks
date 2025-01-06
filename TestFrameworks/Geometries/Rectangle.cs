@@ -13,5 +13,5 @@ public  class Rectangle(double width, double heigth) : IGeometry
     public double Heigth => heigth;
 
     public double GetLength()
-        => 2 * (width + heigth);
+        => 2 * (width);
 }
