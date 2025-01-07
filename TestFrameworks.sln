@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginApp", "LoginApp\LoginA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginApp.Tests", "TestProject3\LoginApp.Tests.csproj", "{8772E950-B178-4706-B898-D5EF6B8AE0D6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoginApp.Integration", "LoginApp.Integration\LoginApp.Integration.csproj", "{B1961F6B-720D-439F-A8EA-61B2B788E9DA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{8772E950-B178-4706-B898-D5EF6B8AE0D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8772E950-B178-4706-B898-D5EF6B8AE0D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8772E950-B178-4706-B898-D5EF6B8AE0D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1961F6B-720D-439F-A8EA-61B2B788E9DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1961F6B-720D-439F-A8EA-61B2B788E9DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1961F6B-720D-439F-A8EA-61B2B788E9DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1961F6B-720D-439F-A8EA-61B2B788E9DA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

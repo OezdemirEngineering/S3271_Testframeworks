@@ -34,9 +34,6 @@ public class MainWindowViewModel : BindableBase
     {
         LoginCommand = new DelegateCommand(Login);
         LogoutCommand = new DelegateCommand(Logout);
-
-        UserName = "admin";
-        Password = "admin";
     }
 
     private void Logout()
