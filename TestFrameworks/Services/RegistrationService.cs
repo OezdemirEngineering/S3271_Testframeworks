@@ -13,6 +13,8 @@ public class RegistrationService
     private readonly IEmailService _emailService;
     private readonly ILoggerService _loggerService;
 
+    private string _address = "info@oeeng.de";
+
     public RegistrationService(IEmailService emailService, ILoggerService loggerService)
     {
         _emailService = emailService;

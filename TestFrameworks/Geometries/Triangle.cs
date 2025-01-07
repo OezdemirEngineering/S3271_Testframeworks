@@ -13,5 +13,5 @@ internal class Triangle(double a, double b, double c) : IGeometry
     public double B => b;
     public double C => c;
     public double GetLength()
-        => a;
+        => a + b + c;
 }

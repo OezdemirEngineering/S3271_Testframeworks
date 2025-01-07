@@ -8,12 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace TestFrameworks.DatabaseService;
-public class TestDbContext : DbContext
-{
-    public DbSet<UserDto> Users { get; set; }
-
-    public TestDbContext(DbContextOptions<TestDbContext> options) : base(options) { }
-}
 
 public class UserService
 {

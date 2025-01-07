@@ -2,11 +2,19 @@
 using TestFrameworks.Utils;
 using System.ComponentModel.DataAnnotations;
 using FluentAssertions;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace TestProject2;
 
-public class CaclulatorTests
+public class CaclulatorTests : IDisposable
 {
+
+    public CaclulatorTests()
+    {
+
+    }
+
 
     [Fact]
     public void Add_TwoIntegers_CorrectSum()
@@ -37,5 +45,10 @@ public class CaclulatorTests
         int actual = Calculator.Add(a, b);
         //Assert
         Assert.Equal(expected, actual);
+    }
+
+    public void Dispose()
+    {
+        // Cleanup
     }
 }

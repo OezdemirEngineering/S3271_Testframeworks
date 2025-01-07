@@ -1,0 +1,20 @@
+﻿<Window x:Class="LoginApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LoginApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel Name="LoginPanel" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding LoginPanel}">
+            <TextBox Name="UserName" Text="{Binding UserName}" Width="200" Margin="5"></TextBox>
+            <TextBox Name="Password" Text="{Binding Password}" Width="200" Margin="5"></TextBox>
+            <Button Name="LoginButton" Command="{Binding LoginCommand}"  Content="Login"  Width="200" Margin="5"></Button>
+        </StackPanel>
+        <StackPanel Name="DashBoardPanel" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="{Binding DashBoardPanel}">
+            <TextBlock Name="DashBoardTitle" Text="DashBoard" Width="200" Margin="5"></TextBlock>
+            <Button Name="LogoutButton" Command="{Binding LogoutCommand}" Content="Logout" Width="200" Margin="5"></Button>
+        </StackPanel>
+    </Grid>
+</Window>
