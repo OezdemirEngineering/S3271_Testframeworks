@@ -161,6 +161,44 @@ public class DbServiceTests :IDisposable
         deletedUser.Should().BeNull();
     }
 
+    [Theory]
+    [MemberData(nameof(GenerateUserData))]
+    public void AddUser_ShouldAddUserWithAutoIncrementId(UserDto user)
+    {
+        // Arrange
+        var dbService = _serviceProvider.GetService<IDbService>();
+
+        // Act
+        dbService.AddUser(user);
+        var addedUser = dbService.GetUser(user.Id);
+
+        // Assert
+        addedUser.Should().NotBeNull();
+        addedUser.FirstName.Should().Be(user.FirstName);
+        addedUser.FamilyName.Should().Be(user.FamilyName);
+        addedUser.Email.Should().Be(user.Email);
+    }
+
+
+
+    public static IEnumerable<object[]> GenerateUserData()
+    {
+        for (int i = 10; i < 20; i++)
+        {
+            yield return new object[]
+            {
+                new UserDto()
+                {
+                    Id = i,
+                    FirstName = "name" + i,
+                    FamilyName = "famName" + i,
+                    Email = "mail" + i + "@mail.de"
+                }
+            };
+        }
+    }
+
+
 
 
     public void Dispose()
