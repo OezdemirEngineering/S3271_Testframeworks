@@ -121,7 +121,7 @@ public class MainWindowViewModel : BindableBase
         if (SelectedUser != null)
         {     
             NotificationMessage = $"User {SelectedUser.FirstName} deleted successfully!";
-            _dbService.UpdateUser(SelectedUser);
+            _dbService.DeleteUser(SelectedUser.Id);
         }
         else
         {

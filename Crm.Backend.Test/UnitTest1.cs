@@ -6,6 +6,7 @@ using Microsoft.Extensions.DependencyInjection;
 using FluentAssertions;
 using Xunit;
 using CRM.Common.Contracts;
+using NSubstitute.Routing.Handlers;
 
 namespace Crm.Backend.Test;
 
@@ -159,6 +160,8 @@ public class DbServiceTests :IDisposable
         // Assert
         deletedUser.Should().BeNull();
     }
+
+
 
     public void Dispose()
     {
