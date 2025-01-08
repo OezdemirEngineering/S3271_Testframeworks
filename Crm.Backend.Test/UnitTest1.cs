@@ -7,6 +7,7 @@ using FluentAssertions;
 using Xunit;
 using CRM.Common.Contracts;
 using NSubstitute.Routing.Handlers;
+using NSubstitute;
 
 namespace Crm.Backend.Test;
 
@@ -163,7 +164,7 @@ public class DbServiceTests :IDisposable
 
     [Theory]
     [MemberData(nameof(GenerateUserData))]
-    public void AddUser_ShouldAddUserWithAutoIncrementId(UserDto user)
+    public void AddUser_ShouldAddUserWithAutoIncrementId(UserDto user, UserDto user2)
     {
         // Arrange
         var dbService = _serviceProvider.GetService<IDbService>();
@@ -193,12 +194,46 @@ public class DbServiceTests :IDisposable
                     FirstName = "name" + i,
                     FamilyName = "famName" + i,
                     Email = "mail" + i + "@mail.de"
+                },
+                new UserDto()
+                {
+                    Id = i,
+                    FirstName = "name2_" + i,
+                    FamilyName = "famName2_" + i,
+                    Email = "mail2_" + i + "@mail.de"
                 }
             };
         }
     }
 
+    public abstract class AbstractService
+    {
+        public abstract int GetNumber();
+        public virtual string GetMessage() => "Default Message";
+    }
 
+    public class AbstractClassTests
+    {
+        [Fact]
+        public void Should_Mock_AbstractClass_Methods_Without_Interface()
+        {
+            // Arrange: Mock für die abstrakte Klasse erstellen
+            var mock = Substitute.For<AbstractService>();
+
+
+            // Verhalten für die Methoden definieren
+            mock.GetNumber().Returns(42);
+            mock.When(x => x.GetMessage()).CallBase();
+
+            // Act: Methoden aufrufen
+            var number = mock.GetNumber();
+            var message = mock.GetMessage();
+
+            // Assert: Überprüfen, ob die erwarteten Werte zurückgegeben werden
+            Assert.Equal(42, number);
+            Assert.Equal("Mocked Message", message);
+        }
+    }
 
 
     public void Dispose()
