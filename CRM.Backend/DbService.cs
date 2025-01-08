@@ -28,7 +28,7 @@ public class DbService : IDbService
     {
         _context.Users.Add(user);
         _context.SaveChanges();
-        UserAdded(GetUser(user.Id));
+        UserAdded?.Invoke(GetUser(user.Id));
     }
     public UserDto GetUser(int id)
     {
@@ -44,7 +44,7 @@ public class DbService : IDbService
     {
         _context.Users.Update(user);
         _context.SaveChanges();
-        UserUpdated(GetUser(user.Id));
+        UserUpdated?.Invoke(GetUser(user.Id));
     }
 
     public void DeleteUser(int id)
@@ -54,7 +54,7 @@ public class DbService : IDbService
         {
             _context.Users.Remove(user);
             _context.SaveChanges();
-            UserRemoved(GetUser(user.Id));
+            UserRemoved?.Invoke(user);
         }
     }
 }
